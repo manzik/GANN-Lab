@@ -36,9 +36,6 @@ Therefore, this step is skipped in this implementation of genetic algorithm.
 In the mutation step, instead of mutating using a uniform probability distribution, genes (ANN weights) are changed randomly using a gaussian distribution.  
 This allows the next generation to fine-tune the weights easier by having more probability for small changes to the weights and less probability for extreme changes to the weights.  
 ## Artificial Neural Network
-
-### **Overview**
-
 ### Architecture
 The neural network's number of hidden layers and the number of neurons in each layer is customizable.  
 The functions ReLU, sigmoid and tanh are available as possible activation functions.  
