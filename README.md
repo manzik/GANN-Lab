@@ -18,9 +18,6 @@ The population starts with random weights (genes) resembling no knowledge. And g
 
 ![Overview of the individuals and how they interact with the world](https://github.com/manzik/GANN-Lab/blob/master/img/individuals.png?raw=true)
 ## Genetic Algorithm
-
-### **Overview**
-
 ### Fitness function
 In order to have a fitness function avoiding extra parameters like destination point, the implemented fitness function's goal is to promote curiosity.  
 The world is split into grid cells with equal size. Each cell in this grid called `curiosity grid` hold a flag of whether it has been explored or not. When an agent passes a cell, it gets flagged as explored only once.  
