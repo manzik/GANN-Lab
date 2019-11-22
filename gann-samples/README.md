@@ -5,7 +5,7 @@ You can find the early codes I wrote to test performance and functionality for `
 The codes are run and tested using [node.js](https://nodejs.org/en/)
  - GA.ipynb: Genetic algorithm code written in python. In this GA, fitness function has positive score for first half of the genes and negative for the second half.  
  - GA.js: Genetic algorithm code translated from python to javascript.
- - GANN.js: Artificial neural networks added to GA.js In this GA, gaol is to minimize artificial neural network's output squared error from this simple formula based on x<sub>1</sub> and x<sub>2</sub>: ![s](http://www.sciweavers.org/tex2img.php?eq=y%20%3D%20-1%20%5Ctimes%20x_1%20%2B%202%20%5Ctimes%20x_2&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0). Note that unlike the backpropagation algorithm, the genetic algorithm does not use the right answer directly to tune the weights.
+ - GANN.js: Artificial neural networks added to GA.js In this GA, gaol is to minimize artificial neural network's output squared error from this simple formula based on x<sub>1</sub> and x<sub>2</sub>: ![s](http://www.sciweavers.org/tex2img.php?eq=y%20%3D%20-1%20%5Ctimes%20x_1%20%2B%202%20%5Ctimes%20x_2&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0).
 ## Outputs
 **GA.ipynb**
 ```
