@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="main.js"></script>
+    <script src="GANN.js"></script>
+    <script src="world.js"></script>
+    <script src="individual.js"></script>
+    <script src="saved-world.js"></script>
+    <script src="world-handler.js"></script>
+    <script src="world-designer.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    
+    <link href="css/materialize.css" rel="stylesheet" />
+    
+    <script src="js/dat.gui.min.js"></script>
+    <link href="css/dat-gui-light-theme.css" rel="stylesheet" />
+    <style>
+        #project-title
+        {
+            position: relative;
+            background: rgba(250, 250, 250, 0.8);
+            height: 40px;
+            display: flex;
+            
+            flex-direction:row;
+        }
+
+        #project-title img
+        {
+            width: 1.25em;
+            height: auto;
+            top: 1.2rem;
+            position: relative;
+            transform: translateY(-50%);
+        }
+
+        #project-title
+        {
+            float: right;
+            right: 0px;
+            bottom: 0px;
+            display: block;
+            width: auto;
+            height: auto;
+            position: fixed;
+            border: 1px #0000002e solid;
+            padding: 10px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        #project-title *
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #project-title span, #project-title a, #project-title b
+        {
+            line-height: 40px;
+            margin: 0px 5px 0px 5px;
+        }
+
+        #project-title > b
+        {
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            position: relative;
+            text-align: center;
+            margin-right: 30px;
+            font-size: 1.2em;
+        }
+
+        #project-title > span
+        {
+            font-size: 2.5rem;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        #project-title > b#generation-label
+        {
+            display: block;
+            position: relative;
+            z-index: 100;
+            top: 0px;
+            font-size: 1.1rem;
+            text-align: center;
+            text-align: center;
+        }
+
+        #project-title a
+        {
+            line-height: 40px;
+            font-size: 1.25rem;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+        }
+
+        #project-title a b
+        {
+            text-decoration: underline;
+        }
+
+        #top-right-controls
+        {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+
+            display:flex;
+            flex-direction:column;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .dg .c
+        {
+            width: 40% !important;
+        }
+        .dg .property-name
+        {
+            width: 60% !important;
+        }
+        .dg .cr.function .property-name
+        {
+            width: 100% !important;
+        }
+
+        body
+        {
+            margin: 0;
+            left: 0;
+            top: 0;
+            display: flex;
+            background-color: black;
+        }
+        canvas#c
+        {
+            top: 0px;
+            left: 0px;
+            position: relative;
+            margin: 0px;
+            background-color: white;
+        }
+
+        #toast-container {
+            top: auto !important;
+            right: auto !important;
+            bottom: 10%;
+            left:50%;
+            transform: translateX(-50%);
+    
+        }
+
+        #map
+        {
+            left: 0;
+            top: 0;
+            position: relative;
+            display: none;
+            background-color: white;
+        }
+
+        div#tools
+        {
+            left: 450px;
+            top: 0px;
+            display: none;
+            position: absolute;
+        }
+
+        button
+        {
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+
+        #world-mode
+        {
+            position: absolute;
+            width: 450px;
+            display: flex;
+            left: 0px;
+            top: 0px;
+        }
+
+        #world-mode div.mode
+        {
+            line-height: 100px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            margin: 0;
+            width: 400px;
+            height: 100px;
+            background: white;
+            border: none;
+            z-index: 100000000;
+            box-shadow: 0px 0px 50px rgba(255,255,255,0.8) inset;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(61, 61, 61);
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s all,0.3s width;
+            text-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+            text-align: center;
+        }
+
+        #world-mode div.enabled
+        {
+            background-color: rgba(200, 200, 200, 1);
+            box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.48) inset;
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+        }
+        #world-mode div:not(.enabled)
+        {
+            background: #eee;
+            box-shadow: 0px 0px 20px rgba(255,255,255,1) inset;
+            border: solid 0.5px rgba(0,0,0,0.1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(61, 61, 61);
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s all,0.3s width;
+            text-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+        }
+
+        div#tools > button
+        {
+            width: 150px;
+            background: rgb(245, 245, 245);
+            border: none;
+            box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 6px rgba(0,0,0,0.7);
+            margin-left: 10px;
+            margin-top: 5px;
+            padding: 10px 0px 10px 0px;
+            outline: none;
+        }
+        div#tools > button.selected
+        {
+            box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 6px rgba(0,0,0,0.7), 0px 0px 15px rgba(0, 0, 0, 0.4) inset;
+        }
+
+        .noselect 
+        {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+    <div id="project-title">
+        <span>GANN Lab</span>
+        <br />
+        <b>Genetic Algorithm + Artifical Neural Networks</b>
+        <b id="generation-label">Generation: <span id="generation-number"></span></b>
+        <a href="https://github.com/manzik/GANN-Lab"><img src="img/github-logo.png" /> <b>github.com/manzik/GANN-Lab</b></a>
+    </div>
+
+    <div id="world-mode" class="noselect">
+        <div class="mode enabled" onclick="trySwitchProcessMode();" id="process-mode-button">Process World</div>
+        <div class="mode" onclick="trySwitchDesignMode();" id="design-mode-button">Design World</div>
+    </div>
+
+    <canvas id="map" class="noselect"></canvas>
+    <div id="tools" class="noselect">
+        <button id="add-line" class="selected">Add Line</button>
+        <button id="remove-line">Remove Line</button>
+        <button id="change-spawn">Change Spawn Point</button>
+        <!--<button id="change-world-size">Change World Size</button>-->
+        <button id="reset-world">Reset World</button>
+        <button id="export-world">Export World</button>
+        <button id="import-world">Import World</button>
+    </div>
+    
+    <input type="file" id="world-input" style="display: none;" />
+    
+    
+</body>
+
+</html>
