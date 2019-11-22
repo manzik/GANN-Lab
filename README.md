@@ -5,11 +5,11 @@ You can **access the project at [https://github.mohsenyousefian.com/GANN-Lab/](h
   
 ![Demo GIF of the project](https://github.com/manzik/GANN-Lab/blob/master/img/demo.gif)
 
+You can find sample codes used to test these algorithms in this project in Javascript and Python at [genetic-algorithm-samples](https://github.com/manzik/GANN-Lab/tree/master/gann-samples/).  
+
 Introductory resources:
  - Artificial neural networks: https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
  - Genetic Algorithm: https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3
-
-You can find sample codes used to test these algorithms in this project in Javascript and Python at [genetic-algorithm-samples](https://github.com/manzik/GANN-Lab/tree/master/gann-samples/).
 
 ## Overview of the world and the agents
 Each agent consists of weights for a fully connected feedforward ANN (artificial neural network) encoded as a set of genes in the individual's chromosome. The ANN's input is a set of distances from the closest collision from each sensor as input, and the ANN will make a decision based on the weights defined in that individual's genes, and produce an output for decisions on turns to make and acceleration in each frame.  
