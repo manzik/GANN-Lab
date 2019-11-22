@@ -35,7 +35,7 @@ Therefore, this step is skipped in this implementation of genetic algorithm.
 ### Mutation
 In the mutation step, instead of mutating using a uniform probability distribution, genes (ANN weights) are changed randomly using a gaussian distribution.  
 This allows the next generation to fine-tune the weights easier by having more probability for small changes to the weights and less probability for extreme changes to the weights.  
-Furthermore, weight clipping is done to make sure that weights for the ANN remain in the range (-1, 1).
+Furthermore, weight clipping is done to make sure that weights for the ANN remain in the range (-1, 1) to prevent gradient exploding to some extent, especially when using ReLU as the activation function.
 ## Artificial Neural Network
 ### Architecture
 The neural network's number of hidden layers and the number of neurons in each layer is customizable.  
