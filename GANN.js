@@ -109,6 +109,7 @@ class Population {
 }
 
 // Random value from normal distribution
+// https://stackoverflow.com/a/49434653/4986857
 function randn_bm() {
     var u = 0, v = 0;
     while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
