@@ -44,30 +44,30 @@ class World
         let sensorAngleDifference = Math. PI * 2 / 12;
         let sensors = [
             // Front looking sensor for sensorsCoverage >= 1
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 0) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 0) },
             
             // Side sensors for sensorsCoverage >= 2
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 1) },
-            { x: 0.5, y: 1.0, angle: (-sensorAngleDifference * 1) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 1) },
+            { x: 0.0, y: 0.0, angle: (-sensorAngleDifference * 1) },
 
             // Side sensors for sensorsCoverage >= 3
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 2) },
-            { x: 0.5, y: 1.0, angle: (-sensorAngleDifference * 2) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 2) },
+            { x: 0.0, y: 0.0, angle: (-sensorAngleDifference * 2) },
 
             // Side sensors for sensorsCoverage >= 4
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 3) },
-            { x: 0.5, y: 1.0, angle: (-sensorAngleDifference * 3) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 3) },
+            { x: 0.0, y: 0.0, angle: (-sensorAngleDifference * 3) },
 
             // Side sensors for sensorsCoverage >= 5
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 4) },
-            { x: 0.5, y: 1.0, angle: (-sensorAngleDifference * 4) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 4) },
+            { x: 0.0, y: 0.0, angle: (-sensorAngleDifference * 4) },
 
             // Side sensors for sensorsCoverage >= 5
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 5) },
-            { x: 0.5, y: 1.0, angle: (-sensorAngleDifference * 5) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 5) },
+            { x: 0.0, y: 0.0, angle: (-sensorAngleDifference * 5) },
 
             // Behind looking sensor for sensorsCoverage == 7
-            { x: 0.5, y: 1.0, angle: (sensorAngleDifference * 6) },
+            { x: 0.0, y: 0.0, angle: (sensorAngleDifference * 6) },
         ];
 
         sensors = sensors.slice(0, sensorsCount);

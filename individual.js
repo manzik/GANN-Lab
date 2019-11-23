@@ -231,8 +231,7 @@ class Individual
         if (this.passedSteps >= options.worldLifeSpan)
             return 2;
 
-        let sensorsResults = this.calculateSensors();
-        this.sensorsResults = sensorsResults;
+        this.sensorsResults = this.calculateSensors();
 
         this.makeNeuralNetworkDecisions();
 
