@@ -210,8 +210,6 @@ class World
         if(options.mapPreset == 0) // mapPreset: Auto generate
             this.autoSetMapCollisions();
         
-        
-
         this.resetWorld();
     }
 }
@@ -231,10 +229,10 @@ var lineSegmentsIntersect = (x1, y1, x2, y2, x3, y3, x4, y4) =>
 function line_intersect(x1, y1, x2, y2, x3, y3, x4, y4)
 {
     var ua, ub, denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
+    
     if (denom == 0)
-    {
         return null;
-    }
+
     ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denom;
     ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denom;
     return {
@@ -265,9 +263,7 @@ class CuriosityGrid
         let grid = this.grid;
 
         for (let i = 0, leni = this.sizeX * this.sizeY; i < leni; i++)
-        {
             grid.push(0);
-        }
 
         this.foundGridInd = 0;
     }
@@ -357,10 +353,10 @@ class CuriosityGrid
     clearGrid()
     {
         let grid = this.grid;
+        
         for (let i = 0, leni = this.sizeX * this.sizeY; i < leni; i++)
-        {
             grid[i] = 0;
-        }
+
         this.foundGridInd = 0;
     }
 }

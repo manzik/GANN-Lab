@@ -149,8 +149,6 @@ function drawTargetNeuralNet(ctx, world)
         {
             currentLayer = individual.lastInput;
 
-            //console.log(currentLayer)
-
             for (let j = 0, lenj = neuralNetLayers[i]; j < lenj; j++)
             {
                 let neuron1X = (i + 1) * (neuronXSpace + neuronRadius);
