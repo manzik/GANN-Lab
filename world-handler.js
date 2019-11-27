@@ -17,7 +17,7 @@ let options = {
     renderBestNetGrid: false,
     activationFunction: 1,
     worldLifeSpan: 3200,
-    obstaclesSize: 150,
+    obstaclesSize: 100,
     mapPreset: 0,
     maxSensorDepth: 800,
     sensorsCoverage: 3,
