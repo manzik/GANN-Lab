@@ -17,6 +17,7 @@ let options = {
     renderBestNetGrid: false,
     activationFunction: 1,
     worldLifeSpan: 3200,
+    obstaclesSize: 150,
     mapPreset: 0,
     maxSensorDepth: 800,
     sensorsCoverage: 3,
@@ -359,7 +360,7 @@ function getCollisionPoints(world)
 {
     let res = [];
 
-    let lineW = 100;
+    let lineW = options.obstaclesSize;
 
     function shouldShow(x, y)
     {
@@ -370,7 +371,7 @@ function getCollisionPoints(world)
     for (let y = lineW; y < world.height - lineW; y += lineW)
     {
 
-        for (let x = 150; x < world.width - lineW; x += lineW * 2)
+        for (let x = lineW * 2; x < world.width - lineW * 1.1; x += lineW * 2)
         {
             if (Math.random() > 0.8 && shouldShow(x, y))
                 res.push({ x1: x, y1: y, x2: x + lineW, y2: y + lineW });
@@ -380,7 +381,7 @@ function getCollisionPoints(world)
     for (let y = lineW; y < world.height - lineW; y += lineW)
     {
 
-        for (let x = 150; x < world.width - lineW; x += lineW * 2)
+        for (let x = lineW * 2; x < world.width - lineW * 0.9; x += lineW * 2)
         {
             if (Math.random() > 0.8 && shouldShow(x, y))
                 res.push({ x1: x, y1: y, x2: x - lineW, y2: y + lineW });
@@ -391,7 +392,7 @@ function getCollisionPoints(world)
     for (let y = lineW; y < world.height - lineW; y += lineW)
     {
 
-        for (let x = 50; x < world.width - lineW; x += lineW * 2)
+        for (let x = lineW * 2; x < world.width - lineW * 1; x += lineW * 2)
         {
             if (Math.random() > 0.8 && shouldShow(x, y))
                 res.push({ x1: x, y1: y, x2: x, y2: y + lineW });
@@ -401,7 +402,7 @@ function getCollisionPoints(world)
     for (let y = lineW; y < world.height - lineW; y += lineW)
     {
 
-        for (let x = 150; x < world.width - lineW; x += lineW * 2)
+        for (let x = lineW * 2; x < world.width - lineW * 1.1; x += lineW * 2)
         {
             if (Math.random() > 0.8 && shouldShow(x, y))
                 res.push({ x1: x, y1: y, x2: x + lineW, y2: y });
@@ -449,6 +450,7 @@ function initializeDatGui()
 
     renderingFolder.add(options, "stepPerFrame").min(1).step(1).name("World steps per frame");
     renderingFolder.add(options, "worldLifeSpan").name("World max lifespan").min(100).step(50);
+    renderingFolder.add(options, "obstaclesSize").name("Obstacles size").min(25).step(5).max(200).onChange(()=>{updateNeuralNetArchitecture(); world.autoSetMapCollisions();});
     renderingFolder.add(options, "renderSensors").name("Render sensors");
     renderingFolder.add(options, "renderBestNet").name("Render best neural net");
     renderingFolder.add(options, "renderBestNetGrid").name("Render grids");
