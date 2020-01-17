@@ -1,7 +1,7 @@
 ## GANN Lab: Experiment showing agents navigating through a user-created world using Genetic Algorithm + Artificial Neural Networks
 This project is a demonstration of how agents controlled by artificial neural networks can learn to survive while navigating in a virtual programmed world through generations using genetic algorithm.
 
-You can **access the project at [https://github.mohsenyousefian.com/GANN-Lab/](https://github.mohsenyousefian.com/GANN-Lab/)**  
+You can **access the project at [https://github.manzik.com/GANN-Lab/](https://github.manzik.com/GANN-Lab/)**  
   
 ![Demo GIF of the project](https://github.com/manzik/GANN-Lab/blob/master/img/demo.gif)
 
