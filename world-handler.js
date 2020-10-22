@@ -430,7 +430,7 @@ function initializeDatGui()
     let gui = new dat.GUI();
 
     let GAFolder = gui.addFolder('Genetic Algorithm');
-    let ANNFolder = gui.addFolder('Artifial Neural Network');
+    let ANNFolder = gui.addFolder('Artificial Neural Network');
     let renderingFolder = gui.addFolder('World & Rendering');
 
     
